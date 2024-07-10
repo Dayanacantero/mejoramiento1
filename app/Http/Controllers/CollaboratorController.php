@@ -12,15 +12,15 @@ class CollaboratorController extends Controller
      */
     public function index()
     {
-        //
+     
+        $collaborators = Collaborator::orderBy('id', 'name')->get();
+        return view('collaborator.listar', compact('collaborators'));
+        //return  $cursos;
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        //
+        return view('collaborator.create');
     }
 
     /**
@@ -28,7 +28,10 @@ class CollaboratorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $collaborator= new Collaborator();
+        $collaborator->name=$request->name;
+        $collaborator->save();
+        return $collaborator;
     }
 
     /**
@@ -36,7 +39,7 @@ class CollaboratorController extends Controller
      */
     public function show(collaborator $collaborator)
     {
-        //
+        return view('collaborator.show', compact('collaborator'));
     }
 
     /**
@@ -44,7 +47,8 @@ class CollaboratorController extends Controller
      */
     public function edit(collaborator $collaborator)
     {
-        //
+    
+        return view('collaborator.edit',compact('collaborator'));
     }
 
     /**
@@ -52,7 +56,9 @@ class CollaboratorController extends Controller
      */
     public function update(Request $request, collaborator $collaborator)
     {
-        //
+        $collaborator->name = $request->name;
+        $collaborator->save();
+        return redirect()->route('collaborator.index');
     }
 
     /**
@@ -60,6 +66,7 @@ class CollaboratorController extends Controller
      */
     public function destroy(collaborator $collaborator)
     {
-        //
+        $collaborator->delete();
+        return redirect()->route('collaborator.index');
     }
 }
