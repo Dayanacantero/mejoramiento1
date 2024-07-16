@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Crear curso</h1>
+    <h1>Crear cliente</h1>
 
 <form action="{{route('customers.store')}}" method="POST" enctype="multipart/form-data">
 

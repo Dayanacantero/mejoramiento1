@@ -8,12 +8,16 @@ use Illuminate\Database\Eloquent\Model;
 class collaborator extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'name'
 
+    ];
+    
     public function projects(){
         return $this->belongsToMany('App\Models\project');
     }
 
     public function pays(){
-        return $this->belongsTo('App\Models\pay');
+        return $this->hasMany('App\Models\pay');
     }
 }

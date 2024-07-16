@@ -14,6 +14,6 @@ class project extends Model
     }
 
     public function customers(){
-        return $this->belongsTo('App\Models\Customer');
+        return $this->hasMany('App\Models\Customer');
     }
 }

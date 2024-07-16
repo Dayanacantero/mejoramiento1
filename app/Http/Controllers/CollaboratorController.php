@@ -13,7 +13,7 @@ class CollaboratorController extends Controller
     public function index()
     {
      
-        $collaborators = Collaborator::orderBy('id', 'name')->get();
+        $collaborators = Collaborator::orderBy('id', 'desc')->get();
         return view('collaborator.listar', compact('collaborators'));
         //return  $cursos;
     }

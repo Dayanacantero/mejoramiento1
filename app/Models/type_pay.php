@@ -10,6 +10,6 @@ class type_pay extends Model
     use HasFactory;
 
     public function pays(){
-        return $this->hasMany('App\Models\pay');
+        return $this->belongsTo('App\Models\pay');
     }
 }

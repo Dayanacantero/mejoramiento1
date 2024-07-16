@@ -10,10 +10,10 @@ class pay extends Model
     use HasFactory;
 
     public function collaborators(){
-        return $this->hasMany('App\Models\collaborator');
+        return $this->belongsTo('App\Models\collaborator');
     }
 
     public function type_pays(){
-        return $this->belongsTo('App\Models\type_pay');
+        return $this->hasMany('App\Models\type_pay');
     }
 }
